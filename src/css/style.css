@@ -33,7 +33,7 @@ html {
 }
 
 .display-bt {
-  /* pointer-events: none; */
+  pointer-events: none;
   font-size: 4.5rem;
   background-color: #3c3536;
   width: 21rem;
@@ -56,6 +56,7 @@ html {
   border: 1.2px rgba(0, 0, 0, 0.247) solid;
   width: 25%;
   height: 4.4rem;
+  transition: 0.05s ease-out;
 }
 
 .bottom-btns {
@@ -68,13 +69,26 @@ html {
 
 .btn-number,
 .btn-point {
-  background-color: #625e5f;
+  background-color: #767172;
 }
 
 .btn-operator {
-  background-color: #fea009;
+  background-color: #ffa719;
 }
 
 .btn-action {
-  background-color: #433e3f;
+  background-color: #564f50;
+}
+
+.btn-number:active,
+.btn-point:active {
+  background-color: #bbb3b4;
+}
+
+.btn-operator:active {
+  background-color: #c27e11;
+}
+
+.btn-action:active {
+  background-color: #767172;
 }
