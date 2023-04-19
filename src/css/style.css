@@ -15,8 +15,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url("../img/melons.jpg"); */
-  background-color: antiquewhite;
+  background-image: url("../img/abstract-02.jpg");
+  background-size: cover;
+  /* background-color: antiquewhite; */
 
   height: 100vh;
 }
