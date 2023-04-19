@@ -12,6 +12,7 @@ class Calculator {
     this.previousNum = previousNum;
     this.operator = operator;
     this.result = result;
+
     this.clear();
   }
 
@@ -41,6 +42,8 @@ class Calculator {
 
     //
     display.value = "";
+
+    display.setAttribute("placeholder", this.previousNum);
   }
 
   calcResult() {
@@ -73,6 +76,7 @@ class Calculator {
     display.value = "";
     this.currentNum = "";
     this.previousNum = "";
+    display.setAttribute("placeholder", "0");
   }
 
   negativeNum() {
@@ -93,7 +97,7 @@ const calc = new Calculator();
 
 // PERCENT
 actionBtn.forEach((el) => {
-  el.addEventListener("click", function () {
+  el.addEventListener("click", function() {
     if (el.classList.contains("clear")) {
       calc.clear();
     }
@@ -110,14 +114,14 @@ actionBtn.forEach((el) => {
 
 // NUMBERS
 numberBtn.forEach((el) => {
-  el.addEventListener("click", function () {
+  el.addEventListener("click", function() {
     calc.displayView(el.textContent);
   });
 });
 
 // OPERATORS
 operatorBtn.forEach((el) => {
-  el.addEventListener("click", function () {
+  el.addEventListener("click", function() {
     if (el.textContent !== "=") {
       calc.operation(el.textContent.trim());
     }
