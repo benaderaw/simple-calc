@@ -15,7 +15,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/abstract-02.jpg");
+  background-image: url("../img/abstract.jpg");
   background-size: cover;
   /* background-color: antiquewhite; */
 
@@ -32,19 +32,16 @@ html {
   box-shadow: 1rem 1rem 4rem #00000046, -1rem -1rem 4rem #0000003d;
 }
 
-.display {
-  width: 21rem;
-}
-
 .display-bt {
   pointer-events: none;
   font-size: 4rem;
-  background-color: #1a1617b5;
   width: 21rem;
   height: 8rem;
   text-align: right;
   padding: 1.5rem;
   font-weight: 200;
+  background-color: hsla(345, 8%, 9%, 0.7);
+  overflow: hidden;
 }
 
 .display-bt::placeholder {
@@ -74,7 +71,7 @@ html {
 
 .btn-number,
 .btn-point {
-  background-color: #646061be;
+  background-color: hsla(345, 2%, 38%, 0.7);
 }
 
 .btn-operator {
@@ -88,13 +85,13 @@ html {
 }
 
 .btn-action {
-  background-color: #464041c3;
+  background-color: hsla(350, 4%, 26%, 0.7);
   font-size: 1.5rem;
 }
 
 .btn-number:active,
 .btn-point:active {
-  background-color: #bbb3b4ba;
+  background-color: hsla(352, 6%, 72%, 0.7);
 }
 
 .btn-operator:active {
@@ -102,5 +99,5 @@ html {
 }
 
 .btn-action:active {
-  background-color: #646061be;
+  background-color: hsla(345, 2%, 38%, 0.7);
 }

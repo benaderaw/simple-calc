@@ -13,10 +13,12 @@ class Calculator {
     this.operator = operator;
     this.result = result;
 
-    this.clear();
+    // this.clear();
   }
 
   displayView(num) {
+    clearBtn.textContent = "C";
+
     if (this.currentNum === "") {
       display.value = "";
       if (num === "." && display.value === "") {
@@ -44,9 +46,6 @@ class Calculator {
 
     //
     display.value = "";
-
-    console.log(display.value);
-
     display.setAttribute("placeholder", this.previousNum);
   }
 
@@ -76,13 +75,6 @@ class Calculator {
     this.currentNum = "";
   }
 
-  clear() {
-    display.value = "";
-    this.currentNum = "";
-    this.previousNum = "";
-    display.setAttribute("placeholder", "0");
-  }
-
   negativeNum() {
     if (display.value === "" || display.value === "0") return;
 
@@ -94,16 +86,39 @@ class Calculator {
   percentNum() {
     display.value = display.value / 100;
   }
+
+  clear() {
+    clearBtn.textContent = "AC";
+
+    if (this.operator === undefined) {
+      display.style.fontSize = 4 + "rem";
+      return (display.value = "");
+    }
+
+    if (this.operator !== undefined) {
+      display.style.fontSize = 4 + "rem";
+      return (this.operator = undefined);
+    }
+  }
+
+  allClear() {
+    display.value = "";
+    this.currentNum = "";
+    this.previousNum = "";
+    display.style.fontSize = 4 + "rem";
+    display.setAttribute("placeholder", "0");
+  }
 }
 
 //
 const calc = new Calculator();
 
-// PERCENT
+// CLEAR / NEGATIVE / PERCENT
 actionBtn.forEach((el) => {
   el.addEventListener("click", function() {
     if (el.classList.contains("clear")) {
-      calc.clear();
+      if (el.textContent === "C") return calc.clear();
+      if (el.textContent === "AC") return calc.allClear();
     }
 
     if (el.classList.contains("negative")) {
@@ -119,6 +134,17 @@ actionBtn.forEach((el) => {
 // NUMBERS
 numberBtn.forEach((el) => {
   el.addEventListener("click", function() {
+    let currentFontSize = 4;
+
+    if (display.scrollWidth > display.clientWidth) {
+      while (display.scrollWidth > display.clientWidth) {
+        currentFontSize = currentFontSize - 0.1;
+        display.style.fontSize = currentFontSize + "rem";
+      }
+    } else {
+      display.style.fontSize = 4 + "rem";
+    }
+
     calc.displayView(el.textContent);
   });
 });
