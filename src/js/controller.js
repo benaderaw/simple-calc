@@ -37,11 +37,15 @@ class Calculator {
   }
 
   operation(op) {
-    this.previousNum = +display.value;
     this.operator = op;
+    if (display.value === "") return;
+
+    this.previousNum = +display.value;
 
     //
     display.value = "";
+
+    console.log(display.value);
 
     display.setAttribute("placeholder", this.previousNum);
   }
