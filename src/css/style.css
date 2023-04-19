@@ -15,17 +15,20 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d9d9d9;
+  /* background-image: url("../img/melons.jpg"); */
+  background-color: antiquewhite;
+
   height: 100vh;
 }
 
 .shape {
   width: 21rem;
   height: 30rem;
-  border-radius: 1.5rem;
+  border-radius: 1.2rem;
   overflow: hidden;
-  border: #92929252 1.7px solid;
-  box-shadow: 1rem 1rem 4rem #00000076;
+  border: #92929252 1.8px solid;
+  backdrop-filter: blur(40px);
+  box-shadow: 1rem 1rem 4rem #000000a5;
 }
 
 .display {
@@ -35,7 +38,7 @@ html {
 .display-bt {
   pointer-events: none;
   font-size: 4rem;
-  background-color: #3c3536;
+  background-color: #1a1617b5;
   width: 21rem;
   height: 8rem;
   text-align: right;
@@ -58,7 +61,7 @@ html {
   justify-content: center;
   align-items: center;
   font-size: 1.9rem;
-  border: 1.2px rgba(0, 0, 0, 0.247) solid;
+  border: 1.3px rgba(0, 0, 0, 0.357) solid;
   width: 25%;
   height: 4.4rem;
   transition: 0.05s ease-out;
@@ -70,20 +73,26 @@ html {
 
 .btn-number,
 .btn-point {
-  background-color: #767172;
+  background-color: #646061be;
 }
 
 .btn-operator {
-  background-color: #ffa719;
+  background-color: #ffa008;
+  font-size: 2.5rem;
+  display: flex;
+}
+
+.material-symbols-outlined {
+  font-size: 2rem;
 }
 
 .btn-action {
-  background-color: #564f50;
+  background-color: #464041c3;
 }
 
 .btn-number:active,
 .btn-point:active {
-  background-color: #bbb3b4;
+  background-color: #bbb3b4ba;
 }
 
 .btn-operator:active {
@@ -91,5 +100,5 @@ html {
 }
 
 .btn-action:active {
-  background-color: #767172;
+  background-color: #646061be;
 }

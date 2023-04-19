@@ -6,137 +6,6 @@ const actionBtn = document.querySelectorAll(".btn-action");
 const operatorBtn = document.querySelectorAll(".btn-operator");
 const pointBtn = document.querySelector(".btn-point");
 
-// let currNum;
-// let prevNum;
-// let operator;
-
-// NUMBERS
-// numberBtn.forEach((el) => {
-//   el.addEventListener("click", function () {
-//     if (el.textContent === "0" && display.value === "") return;
-
-//     if (currNum === "") {
-//       currNum = currNum + el.textContent;
-//       return (display.value = currNum);
-//     }
-
-//     currNum = display.value + el.textContent;
-//     display.value = currNum;
-//   });
-// });
-
-// // POINT
-// btnPoint.addEventListener("click", function () {
-//   //
-//   currNum = "0.";
-//   display.value = currNum;
-// });
-
-// // ACTION
-// actionBtn.forEach((el) => {
-//   el.addEventListener("click", function () {
-//     // CLEAR
-//     if (el.classList.contains("clear")) {
-//       currNum = 0;
-//       prevNum = 0;
-//       return (display.value = "");
-//     }
-
-//     // NEGATIVE
-//     if (el.classList.contains("negative")) {
-//       if (display.value === 0 || display.value === "") {
-//         return (display.value = "");
-//       }
-
-//       currNum = display.value.startsWith("-")
-//         ? display.value.slice(1)
-//         : "-" + display.value;
-
-//       return (display.value = currNum);
-//     }
-
-//     // PERCENT
-//     if (el.classList.contains("percent")) {
-//       currNum = display.value / 100;
-//       return (display.value = currNum);
-//     }
-//   });
-// });
-
-// const ggg = (op) => {
-//   operator = op;
-//   prevNum = currNum;
-//   currNum = "";
-//   display.value = currNum;
-// };
-
-// const kkk = () => {
-//   if (operator === "/") {
-//     const result = +prevNum / +currNum;
-//     prevNum = result.toString();
-//     display.value = result;
-//     currNum = "";
-
-//     return console.log(result);
-//   }
-
-//   if (operator === "*") {
-//     const result = +prevNum * +currNum;
-//     prevNum = result.toString();
-//     display.value = result;
-//     currNum = "";
-
-//     return console.log(result);
-//   }
-
-//   if (operator === "-") {
-//     const result = +prevNum - +currNum;
-//     prevNum = result.toString();
-//     display.value = result;
-//     currNum = "";
-
-//     return console.log(result);
-//   }
-
-//   if (operator === "+") {
-//     const result = +prevNum + +currNum;
-//     prevNum = result.toString();
-//     display.value = result;
-//     currNum = "";
-//     return console.log(result);
-//   }
-// };
-
-// // OPERATORS
-// btnOperator.forEach((el) => {
-//   el.addEventListener("click", function () {
-//     // DIVIDE
-//     if (el.classList.contains("divide")) {
-//       ggg("/");
-//     }
-
-//     // MULTIPLY
-//     if (el.classList.contains("multiply")) {
-//       ggg("*");
-//     }
-
-//     // SUBTRACT
-//     if (el.classList.contains("subtract")) {
-//       ggg("-");
-//     }
-
-//     // ADD
-//     if (el.classList.contains("add")) {
-//       ggg("+");
-//     }
-
-//     // EQUAL
-//     if (el.classList.contains("equal")) {
-//       kkk();
-//     }
-//   });
-// });
-
 class Calculator {
   constructor(currentNum, previousNum, operator, result) {
     this.currentNum = currentNum;
@@ -151,8 +20,11 @@ class Calculator {
       display.value = "";
       if (num === "." && display.value === "") {
         display.value = "0.";
+
         return (this.currentNum = display.value);
       }
+
+      if (num === "0") return;
 
       display.value = display.value + num;
       return (this.currentNum = display.value);
@@ -172,31 +44,25 @@ class Calculator {
   }
 
   calcResult() {
-    if (this.operator === "/") {
-      this.currentNum = +display.value;
+    this.currentNum = +display.value;
 
+    if (this.operator === "÷") {
       this.result = this.previousNum / this.currentNum;
       display.value = this.result;
     }
 
-    if (this.operator === "*") {
-      this.currentNum = display.value;
-
+    if (this.operator === "close") {
       this.result = this.previousNum * this.currentNum;
       display.value = this.result;
     }
 
     if (this.operator === "-") {
-      this.currentNum = display.value;
-
       this.result = this.previousNum - this.currentNum;
       display.value = this.result;
     }
 
     if (this.operator === "+") {
-      this.currentNum = display.value;
-
-      this.result = this.previousNum + this.currentNum;
+      this.result = +this.previousNum + this.currentNum;
       display.value = this.result;
     }
 
@@ -252,7 +118,9 @@ numberBtn.forEach((el) => {
 // OPERATORS
 operatorBtn.forEach((el) => {
   el.addEventListener("click", function () {
-    if (el.textContent !== "=") calc.operation(el.textContent);
+    if (el.textContent !== "=") {
+      calc.operation(el.textContent.trim());
+    }
 
     if (el.textContent === "=") {
       //
