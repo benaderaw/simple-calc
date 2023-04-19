@@ -29,7 +29,7 @@ html {
   overflow: hidden;
   border: #92929252 1.8px solid;
   backdrop-filter: blur(40px);
-  box-shadow: 1rem 1rem 4rem #000000a5;
+  box-shadow: 1rem 1rem 4rem #00000046, -1rem -1rem 4rem #0000003d;
 }
 
 .display {
