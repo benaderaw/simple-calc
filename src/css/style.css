@@ -4,11 +4,11 @@
   border: none;
   color: #e3e3e3;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 html {
   font-size: 16px;
-  font-family: "Inter", sans-serif;
 }
 
 .container {
@@ -34,15 +34,20 @@ html {
 
 .display-bt {
   pointer-events: none;
-  font-size: 4.5rem;
+  font-size: 4rem;
   background-color: #3c3536;
   width: 21rem;
   height: 8rem;
   text-align: right;
   padding: 1.5rem;
+  font-weight: 200;
 }
 
-.top-btns {
+.display-bt::placeholder {
+  color: #e3e3e3;
+}
+
+.calc-btns {
   display: flex;
   margin: 0;
   flex-wrap: wrap;
@@ -57,10 +62,6 @@ html {
   width: 25%;
   height: 4.4rem;
   transition: 0.05s ease-out;
-}
-
-.bottom-btns {
-  display: flex;
 }
 
 .zero {
